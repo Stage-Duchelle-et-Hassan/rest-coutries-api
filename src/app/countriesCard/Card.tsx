@@ -1,6 +1,14 @@
 import Image from "next/image"
 
-export default function CountriesCard (props : any)  {
+interface Propstype  {
+  flag : string,
+  alt : string,
+  name : string,
+  population : string,
+  region : string,
+  capital : string,
+}
+export default function CountriesCard (props : Propstype)  {
 
   return (
     <>
@@ -15,7 +23,7 @@ export default function CountriesCard (props : any)  {
           />
         </div>
         <div className=" w-full h-1/4 px-8">
-          <h1 className="  my-4">{props.name}</h1>
+          <h1 className="my-4">{props.name}</h1>
             <p>Population : <span>{props.population}</span></p>
             <p>Region: <span>{props.region}</span></p>
             <p>Capital : <span>{props.capital}</span></p>
