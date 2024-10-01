@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-interface Propstype  {
+interface CountryCardProps  {
   flag : string,
   alt : string,
   name : string,
@@ -8,7 +8,7 @@ interface Propstype  {
   region : string,
   capital : string,
 }
-export default function CountriesCard (props : Propstype)  {
+export default function CountryCard (props :CountryCardProps)  {
 
   return (
     <>
@@ -29,7 +29,6 @@ export default function CountriesCard (props : Propstype)  {
             <p>Capital : <span>{props.capital}</span></p>
         </div>
       </div>
-      
     </>
   )
 }
