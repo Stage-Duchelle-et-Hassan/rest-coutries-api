@@ -7,11 +7,11 @@ import { Provider } from "./utils/Provider";
 export default function Home() {
   return (
     <>
-      <CountriesInfo/>
-    </>
     <Provider>
+      <CountriesInfo/>
       <SearchBar />
       <CountryCard />
     </Provider>
+    </>
   );
 }
