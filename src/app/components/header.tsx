@@ -13,12 +13,6 @@ type HeaderProps = {
 
 const Header:FC<HeaderProps> = ({isDarkMode}) => {
   const { theme, setTheme } = useTheme()
-  const hanldeToggleTheme = () => {
-    console.log(theme, 'new theme');
-    setTheme((prevTheme) => theme === "dark" ? "light" : "dark")
-    console.log(theme);
-    
-  }
 
   return (
     <header
@@ -33,7 +27,7 @@ const Header:FC<HeaderProps> = ({isDarkMode}) => {
           <h3 className={clsx("font-bold lg:text-[2rem]")}>Where in the world?</h3>
           <button
             className="flex gap-2 items-center lg:text-[1.5rem]"
-            onClick={hanldeToggleTheme}
+            onClick={() => setTheme(() => theme === "dark" ? "light" : "dark")}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
