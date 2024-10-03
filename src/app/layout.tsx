@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "./components/header";
 import { ThemeProvider } from "./components/theme-provider";
+import { Provider } from "./utils/Provider";
 
 
 const geistSans = localFont({
@@ -40,8 +41,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
-
+          <Provider>
+            <Header />
+          </Provider>
           {children}
         </ThemeProvider>
       </body>

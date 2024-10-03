@@ -1,4 +1,4 @@
-import CountriesInfo from "./countriesCard/fetchCountriesData";
+import CountriesInfo from "./components/countriesCard/fetchCountriesData";
 import SearchBar from "./components/searchBar";
 import { Provider } from "./utils/Provider";
 
