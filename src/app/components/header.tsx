@@ -1,26 +1,39 @@
 "use client"
 import clsx from "clsx";
-import { AppContainer } from "./container";
-import { useState } from "react";
+import { AppContainer } from "../globale/container";
+import { FC } from "react";
+import { useTheme } from "next-themes";
 
-const Header = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+
+
+type HeaderProps = {
+  isDarkMode?: boolean;
+  // setIsDarkMode?:  Dispatch<SetStateAction<boolean>>;
+}
+
+const Header:FC<HeaderProps> = ({isDarkMode}) => {
+  const { theme, setTheme } = useTheme()
+  const hanldeToggleTheme = () => {
+    console.log(theme, 'new theme');
+    setTheme((prevTheme) => theme === "dark" ? "light" : "dark")
+    console.log(theme);
+    
+  }
 
   return (
     <header
       className={clsx(
         "py-3 px-3 lg:py-2",
         "transition-all duration-300",
-        "shadow-lg",
-        isDarkMode ? "bg-[hsl(207,26%,17%)] text-neutral-50" : "bg-neutral-50"
+        "shadow-md", "bg-primary-foreground"
       )}
     >
       <AppContainer>
         <div className="flex justify-between items-center  text-[1rem]">
-          <h3 className={clsx("font-bold lg:text-[2rem]", isDarkMode ? 'white' : 'text-[rgb(57,60,61)]')}>Where in the world?</h3>
+          <h3 className={clsx("font-bold lg:text-[2rem]")}>Where in the world?</h3>
           <button
             className="flex gap-2 items-center lg:text-[1.5rem]"
-            onClick={() => setIsDarkMode(!isDarkMode)}
+            onClick={hanldeToggleTheme}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
