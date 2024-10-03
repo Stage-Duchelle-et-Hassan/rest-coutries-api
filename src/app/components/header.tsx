@@ -8,7 +8,6 @@ import { useTheme } from "next-themes";
 
 type HeaderProps = {
   isDarkMode?: boolean;
-  // setIsDarkMode?:  Dispatch<SetStateAction<boolean>>;
 }
 
 const Header:FC<HeaderProps> = ({isDarkMode}) => {
