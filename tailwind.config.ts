@@ -12,6 +12,12 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      backgroundColor : {
+        'background-light' : 'hsl(0, 0%, 98%)'
+       },
+       height: {
+        'custom-height': '360px',
+      },
     },
   },
   plugins: [],
