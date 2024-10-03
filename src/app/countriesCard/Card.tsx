@@ -4,7 +4,7 @@ interface CountryCardProps  {
   flag : string,
   alt : string,
   name : string,
-  population : string,
+  population : number,
   region : string,
   capital : string,
 }
@@ -23,7 +23,7 @@ export default function CountryCard (props :CountryCardProps)  {
           />
         </div>
         <div className=" w-full h-1/4 px-8">
-          <h1 className="my-4">{props.name}</h1>
+          <h1 className="my-4 font-bold text-lg">{props.name}</h1>
             <p>Population : <span>{props.population}</span></p>
             <p>Region: <span>{props.region}</span></p>
             <p>Capital : <span>{props.capital}</span></p>
