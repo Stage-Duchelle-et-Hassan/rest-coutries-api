@@ -12,7 +12,7 @@ export interface Country {
         svg: string
         alt: string
     },
-    population : number,
+    population : string,
     region : string,
     capital : string
   }

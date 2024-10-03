@@ -77,7 +77,6 @@ const config: Config = {
         'custom-height': '360px',
       },
     },
-},
-plugins: [require("tailwindcss-animate")],
 };
+
 export default config;
