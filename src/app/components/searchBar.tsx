@@ -1,5 +1,5 @@
 "use client";
-import { AppContainer } from "../globale/container";
+import { AppContainer } from "./container";
 import { Search } from "lucide-react";
 import { useState } from 'react';
 

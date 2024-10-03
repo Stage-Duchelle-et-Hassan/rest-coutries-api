@@ -1,6 +1,6 @@
 "use client"
 import clsx from "clsx";
-import { AppContainer } from "../globale/container";
+import { AppContainer } from "./container";
 import { FC } from "react";
 import { useTheme } from "next-themes";
 

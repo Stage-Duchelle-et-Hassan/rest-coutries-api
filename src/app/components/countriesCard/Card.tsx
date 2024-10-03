@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { AppContainer } from "../../globale/container"
+import { AppContainer } from "../container"
 
 interface CountryCardProps {
   flag: string,
