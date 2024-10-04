@@ -1,24 +1,23 @@
 "use client"
-
 import { useQuery } from '@tanstack/react-query';
-import CountryCard from "./Card";
-import { useState } from 'react';
+import { useState  } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { RegionList } from './RegionList';
+import CountryCard from './Card';
 
 export interface Country {
-    cca3: string,
-    name: {
-      common: string
-    };
-    flags : {
-        svg: string
-        alt: string
-    },
-    population : string,
-    region : string,
-    capital : string
-  }
+  cca3: string;
+  name: {
+    common: string;
+  };
+  flags: {
+    svg: string;
+    alt: string;
+  };
+  population: string;
+  region: string;
+  capital: string;
+}
 
   async function fetchCountries(region?: string) {
     return (await fetch( region ? `https://restcountries.com/v3.1/region/${region}` : "https://restcountries.com/v3.1/all").then((res) =>
