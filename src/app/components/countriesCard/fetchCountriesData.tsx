@@ -12,7 +12,7 @@ export interface Country {
         svg: string
         alt: string
     },
-    population : number,
+    population : string,
     region : string,
     capital : string
   }
@@ -31,8 +31,8 @@ export interface Country {
   
      
       return (
-        <div className=' flex flex-row bg-background-light text-black'>
-          <div className=' flex gap-16 flex-wrap items-center justify-center lg:px-52'>
+        <div className=' flex flex-ro text-black'>
+          <div className=' flex gap-16 flex-wrap items-center justify-center'>
             {data?.map((country) => (
                   <CountryCard 
                     key  = {country.cca3}
