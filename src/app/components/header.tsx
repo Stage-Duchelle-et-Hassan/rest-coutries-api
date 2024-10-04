@@ -35,9 +35,9 @@ const Header:FC<HeaderProps> = ({isDarkMode}) => {
               viewBox="0 0 24 24"
               fill={isDarkMode ? 'white' : 'white'}
               stroke="currentColor"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               className="lucide lucide-moon"
             >
               <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
