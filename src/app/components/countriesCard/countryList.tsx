@@ -1,4 +1,5 @@
 "use client"
+import { AppContainer } from "../container";
 import CountryCard from "../countriesCard/Card";
 import { Country } from "../countriesCard/fetchCountriesData"; 
 
@@ -8,7 +9,8 @@ interface CountryListProps {
 
 export default function CountryList({ countries }: CountryListProps) {
   return (
-    <div className="flex gap-16 flex-wrap items-center justify-center md:px-4">
+    <AppContainer>
+      <div className="flex gap-16 flex-wrap items-center justify-center md:px-4">
       {(countries && countries.length > 0) ? countries.map((country) => (
         <CountryCard
           key={country.cca3}
@@ -23,5 +25,6 @@ export default function CountryList({ countries }: CountryListProps) {
         <div className="text-primary">Oops there is a typing error !</div>
       )}
     </div>
+    </AppContainer>
   );
 }
