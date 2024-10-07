@@ -4,6 +4,9 @@ import { useState  } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { RegionList } from './RegionList';
 import CountryCard from './Card';
+import { useState, useEffect, useMemo } from 'react';
+import CountryList from '../countriesCard/countryList';
+import CountrySearch from '../countriesCard/countrySearch';
 
 export interface Country {
   cca3: string;
