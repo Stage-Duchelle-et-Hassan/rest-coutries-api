@@ -1,6 +1,6 @@
 "use client"
-import CountryCard from "@/app/components/countriesCard/Card";
-import { Country } from "@/app/components/countriesCard/fetchCountriesData"; 
+import CountryCard from "../countriesCard/Card";
+import { Country } from "../countriesCard/fetchCountriesData"; 
 
 interface CountryListProps {
   countries: Country[] | undefined;

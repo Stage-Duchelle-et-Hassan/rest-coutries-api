@@ -1,6 +1,6 @@
 "use client"
 import { Search } from "lucide-react";
-import { AppContainer } from '@/app/components/container';
+import { AppContainer } from '../container';
 
 interface CountrySearchProps {
   searchTerm: string;
