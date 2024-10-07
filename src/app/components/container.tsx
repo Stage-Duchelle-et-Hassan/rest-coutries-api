@@ -7,7 +7,7 @@ type Props = {
 export const AppContainer: FC<PropsWithChildren<Props>> = ({ children }) => {
 	return (
 		<div className='w-full px-2'>
-			<div className="w-full max-w-screen-2xl mx-auto">{children}</div>
+			<div className="w-full max-w-screen mx-auto">{children}</div>
 		</div>
 	);
 };

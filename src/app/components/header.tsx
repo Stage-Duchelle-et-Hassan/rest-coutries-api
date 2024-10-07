@@ -22,7 +22,7 @@ const Header:FC<HeaderProps> = ({isDarkMode}) => {
       )}
     >
       <AppContainer>
-        <div className="flex justify-between items-center  text-[1rem]">
+        <div className="flex justify-between items-center  text-[1rem] mx-40">
           <h3 className={clsx("font-bold lg:text-[2rem]")}>Where in the world?</h3>
           <button
             className="flex gap-2 items-center lg:text-[1.5rem]"

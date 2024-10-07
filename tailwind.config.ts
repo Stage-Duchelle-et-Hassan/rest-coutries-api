@@ -64,7 +64,7 @@ const config: Config = {
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [],
     extend: {
       colors: {
         background: "var(--background)",
