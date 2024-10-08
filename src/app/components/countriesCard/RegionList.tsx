@@ -5,6 +5,7 @@ export const RegionList  = (props) =>{
     const removeRegionList = (continent : string )=>{
         props.setSelectedRegion(continent === 'All' ? undefined : continent.toLowerCase())
         props.setShowRegionList(false)
+        props.setChangeFilterButtonName(continent)
     }
         
     return(
