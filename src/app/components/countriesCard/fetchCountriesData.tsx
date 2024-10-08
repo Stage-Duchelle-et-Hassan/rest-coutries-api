@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { RegionList } from './RegionList';
 import CountryList from './countryList';
-import CountrySearch from '../countriesCard/countrySearch';
+import CountrySearch from '../countrySearch';
 import { AppContainer } from '../container';
 
 export interface Country {
