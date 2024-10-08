@@ -32,7 +32,7 @@ export default function CountriesInfo() {
   const [selectedRegion, setSelectedRegion] = useState<string | undefined>(undefined);
   const [searchTerm, setSearchTerm] = useState<string>("");
 
-  const { data } = useQuery<Country[]>({
+  const { data,  isLoading} = useQuery<Country[]>({
     queryKey: ['countries', selectedRegion],
     queryFn: () => fetchCountries(selectedRegion),
   });
@@ -45,6 +45,18 @@ export default function CountriesInfo() {
     setSearchTerm(e.target.value);
   };
 
+
+  
+
+    if(isLoading){
+      return(
+        <div className="flex flex-row items-center justify-center gap-2 w-full h-96">
+          <div className="w-6 h-6 rounded-full bg-blue-700 animate-bounce [animation-delay:.7s]"></div>
+          <div className="w-6 h-6 rounded-full bg-blue-700 animate-bounce [animation-delay:.3s]"></div>
+          <div className="w-6 h-6 rounded-full bg-blue-700 animate-bounce [animation-delay:.7s]"></div>
+        </div>
+      )
+    }
   return (
     <>
      <AppContainer>
@@ -60,7 +72,7 @@ export default function CountriesInfo() {
             <p className="text-primary">Filter by region</p>
             <ChevronDown className="text-primary" />
           </button>
-          {showRegionList && <RegionList setSelectedRegion={setSelectedRegion} />}
+          {showRegionList && <RegionList setSelectedRegion={setSelectedRegion} setShowRegionList={setShowRegionList} />}
         </div>
       </div>
       <div className="text-black" onClick={() => setShowRegionList(false)}>
