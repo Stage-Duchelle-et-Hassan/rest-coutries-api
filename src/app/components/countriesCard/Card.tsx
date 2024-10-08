@@ -24,7 +24,7 @@ export default function CountryCard(props: CountryCardProps) {
               className="absolute inset-0 rounded-t-xl"
             />
           </div>
-          <div className="w-full h-1/4 px-8 py-4 bg-primary-foreground">
+          <div className="w-full h-1/4 px-8 py-4 bg-primary-foreground text-primary">
             <h1 className="my-4">{props.name}</h1>
             <p>Population: <span>{props.population}</span></p>
             <p>Region: <span>{props.region}</span></p>
