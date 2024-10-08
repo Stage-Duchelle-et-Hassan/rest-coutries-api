@@ -22,15 +22,20 @@ export interface Country {
 }
 
 async function fetchCountries(region?: string) {
-  return (await fetch(region ? `https://restcountries.com/v3.1/region/${region}` : "https://restcountries.com/v3.1/all").then((res) =>
+  return (await fetch(region ? 
+    `https://restcountries.com/v3.1/region/${region}` 
+    : 
+    "https://restcountries.com/v3.1/all").then((res) =>
     res.json()
+
   )) as Country[];
 }
 
 export default function CountriesInfo() {
-  const [showRegionList, setShowRegionList] = useState(false);
+  const [showRegionList, setShowRegionList] = useState<boolean>(false);
   const [selectedRegion, setSelectedRegion] = useState<string | undefined>(undefined);
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const[changeFilterButtonName ,setChangeFilterButtonName] = useState<string>("Filter by Region")
 
   const { data,  isLoading} = useQuery<Country[]>({
     queryKey: ['countries', selectedRegion],
@@ -45,19 +50,17 @@ export default function CountriesInfo() {
     setSearchTerm(e.target.value);
   };
 
-
+  if(isLoading){
+    return(
+      <div className="absolute top-0 right-0 bottom-0 left-0 flex flex-row items-center justify-center gap-2">
+        <div className="w-6 h-6 rounded-full bg-blue-700 animate-bounce [animation-delay:.7s]"></div>
+        <div className="w-6 h-6 rounded-full bg-blue-700 animate-bounce [animation-delay:.3s]"></div>
+        <div className="w-6 h-6 rounded-full bg-blue-700 animate-bounce [animation-delay:.7s]"></div>
+      </div>
+    )
+  }
   
-
-    if(isLoading){
-      return(
-        <div className="flex flex-row items-center justify-center gap-2 w-full h-96">
-          <div className="w-6 h-6 rounded-full bg-blue-700 animate-bounce [animation-delay:.7s]"></div>
-          <div className="w-6 h-6 rounded-full bg-blue-700 animate-bounce [animation-delay:.3s]"></div>
-          <div className="w-6 h-6 rounded-full bg-blue-700 animate-bounce [animation-delay:.7s]"></div>
-        </div>
-      )
-    }
-  return (
+    return (
     <>
      <AppContainer>
      <div className='flex items-center justify-between mx-40'>
@@ -69,10 +72,15 @@ export default function CountriesInfo() {
             className="flex justify-between items-center bg-primary-foreground shadow-md w-48 px-4 h-9 cursor-pointer rounded-sm"
             onClick={() => setShowRegionList(!showRegionList)}
           >
-            <p className="text-primary">Filter by region</p>
+            <p className="text-primary">{changeFilterButtonName}</p>
             <ChevronDown className="text-primary" />
           </button>
-          {showRegionList && <RegionList setSelectedRegion={setSelectedRegion} setShowRegionList={setShowRegionList} />}
+          {showRegionList && 
+            <RegionList 
+              setSelectedRegion={setSelectedRegion} 
+              setShowRegionList={setShowRegionList} 
+              setChangeFilterButtonName={setChangeFilterButtonName}
+            />}
         </div>
       </div>
       <div className="text-black" onClick={() => setShowRegionList(false)}>
