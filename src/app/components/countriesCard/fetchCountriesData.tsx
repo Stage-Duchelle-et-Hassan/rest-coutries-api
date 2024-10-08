@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { RegionList } from './RegionList';
 import CountryList from './countryList';
-import CountrySearch from './countrySearch';
+import CountrySearch from '../countriesCard/countrySearch';
 import { AppContainer } from '../container';
 
 export interface Country {
@@ -46,7 +46,7 @@ export default function CountriesInfo() {
   };
 
   return (
-    <div className="">
+    <>
      <AppContainer>
      <div className='flex items-center justify-between mx-40'>
         <div>
@@ -67,6 +67,6 @@ export default function CountriesInfo() {
         <CountryList countries={filteredCountries} />
       </div>
      </AppContainer>
-    </div>
+    </>
   );
 }
