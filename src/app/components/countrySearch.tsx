@@ -1,5 +1,5 @@
 import { Search } from "lucide-react";
-import { AppContainer } from '../container';
+import { AppContainer } from './container';
 
 interface CountrySearchProps {
   searchTerm: string;
