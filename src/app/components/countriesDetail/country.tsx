@@ -15,6 +15,7 @@ export interface CountryDetailProps {
     currencies: string;
     languages: string;
     border: string[];
+    tld: string;
 }
 
 export default function CountryDetails(props: CountryDetailProps) {
@@ -40,7 +41,7 @@ export default function CountryDetails(props: CountryDetailProps) {
                             <p>Capital: <span className="text-gray-400">{props.capital}</span></p>
                         </div>
                         <div className="space-y-2">
-                            <p>Top Level Domain: <span className="text-gray-400">{props.currencies}</span></p>
+                            <p>Top Level Domain: <span className="text-gray-400">{props.tld}</span></p>
                             <p>Currencies: <span className="text-gray-400">{props.currencies}</span></p>
                             <p>Languages: <span className="text-gray-400">{props.languages}</span></p>
                         </div>

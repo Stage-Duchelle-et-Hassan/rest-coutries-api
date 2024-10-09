@@ -43,7 +43,6 @@ export default function CountriesInfo() {
     queryFn: () => fetchCountries(selectedRegion),
   });
 
-  console.log(data && data[0].cca3);
   
 
   const filteredCountries = data?.filter((country) =>
