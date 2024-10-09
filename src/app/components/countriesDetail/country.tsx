@@ -22,13 +22,14 @@ export default function CountryDetails(props: CountryDetailProps) {
     return (
         <section>
             <AppContainer>
-                <div className="rounded-xl flex mx-40 gap-20 my-[10%] h-[28rem]">
-                    <div className="relative w-full">
+                <div className="flex justify-center gap-8 items-center my-[10%] md:flex-row flex-col mx-40">
+                    <div className="w-full h-[20rem]">
                         <Image
                             src={props.flag}
                             alt={props.alt}
-                            layout="fill"
-                            objectFit="cover"
+                            className="w-full h-full"
+                            width={1000}
+                            height={1000}
                         />
                     </div>
                     <div className="w-full text-primary grid grid-cols-2 items-center px-10 col-span-2 text-[1rem]">
@@ -45,7 +46,7 @@ export default function CountryDetails(props: CountryDetailProps) {
                             <p>Currencies: <span className="text-gray-400">{props.currencies}</span></p>
                             <p>Languages: <span className="text-gray-400">{props.languages}</span></p>
                         </div>
-                        <div className="col-span-2">
+                        <div className="col-span-2 mt-28">
                             <div className="flex flex-wrap gap-2 space-y-2 items-center">
                                 <p className="mt-2">Border Countries:</p>
                                 {props.border.length > 0 ? (
