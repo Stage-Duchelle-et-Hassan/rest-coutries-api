@@ -53,6 +53,7 @@ export default function CountriesInfo() {
     setSearchTerm(e.target.value);
   };
 
+
   if(isLoading){
     return(
       <div className="absolute top-0 right-0 bottom-0 left-0 flex flex-row items-center justify-center gap-2">
@@ -62,14 +63,29 @@ export default function CountriesInfo() {
       </div>
     )
   }
+
   
     return (
     <>
-     <AppContainer>
-     <div className='flex items-center justify-between mx-40'>
-        <div>
-          <CountrySearch searchTerm={searchTerm} handleInputChange={handleInputChange} />
+      <AppContainer>
+        <div className='flex items-center justify-between mx-40'>
+          <div>
+            <CountrySearch searchTerm={searchTerm} handleInputChange={handleInputChange} />
+          </div>
+          <div className="pr-4">
+            <button
+              className="flex justify-between items-center bg-primary-foreground shadow-md w-48 px-4 h-9 cursor-pointer rounded-sm"
+              onClick={() => setShowRegionList(!showRegionList)}
+            >
+              <p className="text-primary">Filter by region</p>
+              <ChevronDown className="text-primary" />
+            </button>
+            {showRegionList && <RegionList setSelectedRegion={setSelectedRegion} setShowRegionList={setShowRegionList} />}
+          </div>
         </div>
+
+        <div className="text-black" onClick={() => setShowRegionList(false)}>
+          <CountryList countries={filteredCountries} />
         <div className="pr-4">
           <button
             className="flex justify-between items-center bg-primary-foreground shadow-md w-48 px-4 h-9 cursor-pointer rounded-sm"
@@ -85,11 +101,7 @@ export default function CountriesInfo() {
               setChangeFilterButtonName={setChangeFilterButtonName}
             />}
         </div>
-      </div>
-      <div className="text-black" onClick={() => setShowRegionList(false)}>
-        <CountryList countries={filteredCountries} />
-      </div>
-     </AppContainer>
+      </AppContainer>
     </>
   );
 }
