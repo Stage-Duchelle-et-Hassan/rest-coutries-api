@@ -32,10 +32,13 @@ export default function CountriesInfo() {
   const [selectedRegion, setSelectedRegion] = useState<string | undefined>(undefined);
   const [searchTerm, setSearchTerm] = useState<string>("");
 
-  const { data,  isLoading} = useQuery<Country[]>({
+  const { data, isLoading } = useQuery<Country[]>({
     queryKey: ['countries', selectedRegion],
     queryFn: () => fetchCountries(selectedRegion),
   });
+
+  console.log(data && data[0].cca3);
+  
 
   const filteredCountries = data?.filter((country) =>
     country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
@@ -46,39 +49,39 @@ export default function CountriesInfo() {
   };
 
 
-  
 
-    if(isLoading){
-      return(
-        <div className="flex flex-row items-center justify-center gap-2 w-full h-96">
-          <div className="w-6 h-6 rounded-full bg-blue-700 animate-bounce [animation-delay:.7s]"></div>
-          <div className="w-6 h-6 rounded-full bg-blue-700 animate-bounce [animation-delay:.3s]"></div>
-          <div className="w-6 h-6 rounded-full bg-blue-700 animate-bounce [animation-delay:.7s]"></div>
-        </div>
-      )
-    }
+
+  if (isLoading) {
+    return (
+      <div className="flex flex-row items-center justify-center gap-2 w-full h-96">
+        <div className="w-6 h-6 rounded-full bg-blue-700 animate-bounce [animation-delay:.7s]"></div>
+        <div className="w-6 h-6 rounded-full bg-blue-700 animate-bounce [animation-delay:.3s]"></div>
+        <div className="w-6 h-6 rounded-full bg-blue-700 animate-bounce [animation-delay:.7s]"></div>
+      </div>
+    )
+  }
   return (
     <>
-     <AppContainer>
-     <div className='flex items-center justify-between mx-40'>
-        <div>
-          <CountrySearch searchTerm={searchTerm} handleInputChange={handleInputChange} />
+      <AppContainer>
+        <div className='flex items-center justify-between mx-40'>
+          <div>
+            <CountrySearch searchTerm={searchTerm} handleInputChange={handleInputChange} />
+          </div>
+          <div className="pr-4">
+            <button
+              className="flex justify-between items-center bg-primary-foreground shadow-md w-48 px-4 h-9 cursor-pointer rounded-sm"
+              onClick={() => setShowRegionList(!showRegionList)}
+            >
+              <p className="text-primary">Filter by region</p>
+              <ChevronDown className="text-primary" />
+            </button>
+            {showRegionList && <RegionList setSelectedRegion={setSelectedRegion} setShowRegionList={setShowRegionList} />}
+          </div>
         </div>
-        <div className="pr-4">
-          <button
-            className="flex justify-between items-center bg-primary-foreground shadow-md w-48 px-4 h-9 cursor-pointer rounded-sm"
-            onClick={() => setShowRegionList(!showRegionList)}
-          >
-            <p className="text-primary">Filter by region</p>
-            <ChevronDown className="text-primary" />
-          </button>
-          {showRegionList && <RegionList setSelectedRegion={setSelectedRegion} setShowRegionList={setShowRegionList} />}
+        <div className="text-black" onClick={() => setShowRegionList(false)}>
+          <CountryList countries={filteredCountries} />
         </div>
-      </div>
-      <div className="text-black" onClick={() => setShowRegionList(false)}>
-        <CountryList countries={filteredCountries} />
-      </div>
-     </AppContainer>
+      </AppContainer>
     </>
   );
 }
