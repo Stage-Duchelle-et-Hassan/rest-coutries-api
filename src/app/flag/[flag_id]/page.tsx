@@ -14,6 +14,7 @@ export interface CountryData {
     currencies: { [key: string]: { name: string } };
     languages: { [key: string]: string };
     borders?: string[];
+    tld?: string[];
 }
 
 async function fetchCountries(): Promise<CountryData[]> {
@@ -45,11 +46,14 @@ function extractCountryDetails(flag: CountryData, countries: CountryData[]) {
     }) || [];
 
 
+    const tld = flag.tld ? flag.tld.join(', ') : '';
+
     return {
         nativeNameCommon,
         currencies,
         languages,
         borderNames,
+        tld,
     };
 }
 
@@ -64,8 +68,8 @@ export default async function FlagDetails({ params }: { params: { flag_id: strin
 
     console.log("Selected Country:", flag);
 
-    const { nativeNameCommon, currencies, languages, borderNames } = extractCountryDetails(flag, countries);
-    console.log("Extracted Details:", { nativeNameCommon, currencies, languages, borderNames });
+    const { nativeNameCommon, currencies, languages, borderNames, tld } = extractCountryDetails(flag, countries);
+    console.log("Extracted Details:", { nativeNameCommon, currencies, languages, borderNames, tld });
 
     return (
         <div>
@@ -81,6 +85,7 @@ export default async function FlagDetails({ params }: { params: { flag_id: strin
                 currencies={currencies}
                 languages={languages}
                 border={borderNames}
+                tld={tld}
                 cca3={flag.cca3}
             />
         </div>
