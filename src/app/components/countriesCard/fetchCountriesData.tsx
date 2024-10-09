@@ -38,10 +38,13 @@ export default function CountriesInfo() {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const[changeFilterButtonName ,setChangeFilterButtonName] = useState<string>("Filter by Region")
 
-  const { data,  isLoading} = useQuery<Country[]>({
+  const { data, isLoading } = useQuery<Country[]>({
     queryKey: ['countries', selectedRegion],
     queryFn: () => fetchCountries(selectedRegion),
   });
+
+  console.log(data && data[0].cca3);
+  
 
   const filteredCountries = data?.filter((country) =>
     country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
