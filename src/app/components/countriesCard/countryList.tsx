@@ -13,7 +13,7 @@ export default function CountryList({ countries }: CountryListProps) {
     <AppContainer>
       <div className="flex gap-16 flex-wrap items-center justify-center md:px-4">
       {(countries && countries.length > 0) ? countries.map((country) => (
-        <Link 
+        <Link
         key={country.cca3}
         href={`/flag/${country.cca3}`}
         >
