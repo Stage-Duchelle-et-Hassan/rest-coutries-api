@@ -59,17 +59,14 @@ function extractCountryDetails(flag: CountryData, countries: CountryData[]) {
 
 export default async function FlagDetails({ params }: { params: { flag_id: string } }) {
     const countries = await fetchCountries();
-    console.log("Fetched Countries:", countries);
 
     const flag = countries.find(element => element.cca3 === params.flag_id);
     if (!flag) {
         return <div>The element is not found</div>;
     }
 
-    console.log("Selected Country:", flag);
 
     const { nativeNameCommon, currencies, languages, borderNames, tld } = extractCountryDetails(flag, countries);
-    console.log("Extracted Details:", { nativeNameCommon, currencies, languages, borderNames, tld });
 
     return (
         <div>
