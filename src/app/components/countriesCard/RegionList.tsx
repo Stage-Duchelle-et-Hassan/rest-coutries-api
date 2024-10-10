@@ -1,4 +1,10 @@
-export const RegionList  = (props) =>{
+interface RegionListType {
+    setSelectedRegion: (region: string | undefined) => void;
+    setShowRegionList: (show: boolean) => void;
+    setChangeFilterButtonName: (name: string) => void;
+}
+export const RegionList  = (props  : RegionListType) =>{
+ 
 
     const continents = ['All', 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
     
@@ -21,3 +27,5 @@ export const RegionList  = (props) =>{
            </div>
        )
  }
+
+ 
