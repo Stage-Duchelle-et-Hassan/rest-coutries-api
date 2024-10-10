@@ -10,6 +10,9 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+		boxShadow: {
+			'3xl': '2px -2px 13px 0px rgba(0,0,0,0.49)',
+		  },
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
