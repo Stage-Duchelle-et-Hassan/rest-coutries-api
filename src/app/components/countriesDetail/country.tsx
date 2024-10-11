@@ -28,6 +28,7 @@ export default function CountryDetails(props: CountryDetailProps) {
                 </div>
                 <div className="flex justify-center gap-8 items-center mt-[10%] md:flex-row flex-col mx-40 ">
                     <div className="w-full h-[28rem]">
+
                         <Image
                             src={props.flag}
                             alt={props.alt}
