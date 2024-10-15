@@ -15,7 +15,7 @@ export default function CountryCard(props: CountryCardProps) {
     <section>
       <AppContainer>
         <div className="w-80  h-custom-height shadow-lg rounded-xl bg-white cursor-pointer">
-          <div className="relative h-40 w-full shadow-md">
+        <div className="relative h-40 w-full shadow-md">
             <Image
               src={props.flag}
               alt={props.alt}
