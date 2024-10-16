@@ -15,13 +15,13 @@ export default function CountryCard(props: CountryCardProps) {
     <section>
       <AppContainer>
         <div className="w-80  h-custom-height shadow-lg rounded-xl bg-white cursor-pointer">
-        <div className="relative h-40 w-full shadow-md">
+        <div className="relative h-48 w-full shadow-md">
             <Image
               src={props.flag}
               alt={props.alt}
               layout="fill"
               objectFit="cover"
-              className="absolute inset-0 rounded-t-xl"
+              className="inset-0 rounded-t-xl object-contain"
             />
           </div>
           <div className="w-full h-1/4 px-8 py-4 bg-primary-foreground text-primary">
