@@ -27,7 +27,7 @@ export default function CountryList({ countries }: CountryListProps) {
         />
         </Link>
       )) : (
-        <div className="text-primary">Oops there is a typing error !</div>
+        <div className="text-primary text-2xl mt-40 items-center">Oops That doesn&apos;t exist, or maybe you made a typo !</div>
       )}
     </div>
     </AppContainer>

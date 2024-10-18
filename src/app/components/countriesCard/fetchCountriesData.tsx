@@ -62,11 +62,11 @@ export default function CountriesInfo() {
   return (
     <>
       <AppContainer>
-        <div className='flex items-center justify-between mx-40'>
+        <div className='flex flex-col sm:flex-row items-center justify-between mx-auto md:mx-40 my-10 sm:my-4'>
           <CountrySearch searchTerm={searchTerm} handleInputChange={handleInputChange} />
           <div className="pr-4">
             <button
-              className="flex justify-between items-center bg-primary-foreground shadow-md w-48 px-4 h-9 cursor-pointer rounded-sm"
+              className="flex justify-between items-center bg-primary-foreground shadow-md w-72 mx-auto sm:w-48 px-4 h-9 cursor-pointer rounded-sm"
               onClick={() => setShowRegionList(!showRegionList)}
             >
               <p className="text-primary">{changeFilterButtonName}</p>
