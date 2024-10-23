@@ -1,5 +1,4 @@
 import { Search } from "lucide-react";
-import { AppContainer } from './container';
 
 interface CountrySearchProps {
   searchTerm: string;
@@ -10,7 +9,6 @@ export default function CountrySearch({ searchTerm, handleInputChange }: Country
   return (
     <div className="lg:w-full max-w-5xl mx-auto lg:max-w-full">
       <section className="py-12">
-        <AppContainer>
           <div className="relative p-3">
             <Search className="absolute left-5 top-[50%] translate-y-[-50%] h-5 w-5 text-muted-foreground" />
             <input
@@ -21,7 +19,6 @@ export default function CountrySearch({ searchTerm, handleInputChange }: Country
               onChange={handleInputChange}
             />
           </div>
-        </AppContainer>
       </section>
     </div>
   );
