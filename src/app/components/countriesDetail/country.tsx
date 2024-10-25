@@ -23,10 +23,10 @@ export default function CountryDetails(props: CountryDetailProps) {
     return (
         <section>
             <AppContainer>
-                <div className=" relative top-16 flex items-end sm:my-4 mx-40">
+                <div className=" relative top-16 flex items-end sm:my-16 mt-12 mb-32 sm:mx-44">
                     <BackButton/>
                 </div>
-                <div className="flex justify-center lg:gap-8 items-center mt-[10%] md:flex-row flex-col mx-40">
+                <div className="flex justify-center lg:gap-8 items-center mt-[10%] lg:flex-row flex-col sm:mx-44 ">
                     <div className="w-full lg:h-[28rem] sm:my-8">
                         <Image
                             src={props.flag}
@@ -66,7 +66,6 @@ export default function CountryDetails(props: CountryDetailProps) {
                                         <span className="text-gray-400">None</span>
                                     )}
                                 </div>
-                               
                             </div>
                         </div>
                     </div>

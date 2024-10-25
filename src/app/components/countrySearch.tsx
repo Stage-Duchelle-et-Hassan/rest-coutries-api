@@ -9,7 +9,7 @@ export default function CountrySearch({ searchTerm, handleInputChange }: Country
   return (
     <div className="lg:w-full max-w-5xl mx-auto lg:max-w-full">
       <section className="py-12">
-          <div className="relative p-3">
+          <div className="relative">
             <Search className="absolute left-5 top-[50%] translate-y-[-50%] h-5 w-5 text-muted-foreground" />
             <input
               type="search"

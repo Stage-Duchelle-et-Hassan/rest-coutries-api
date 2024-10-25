@@ -17,12 +17,12 @@ const Header:FC<HeaderProps> = ({isDarkMode}) => {
     <header
       className={clsx(
         "py-3 px-3 lg:py-2",
-        "transition-all duration-300",
-        "shadow-md", "bg-primary-foreground"
+        "transition-all duration-100",
+        "shadow-md", "bg-primary-foreground","fixed top-0","w-screen","z-50"
       )}
     >
       <AppContainer>
-        <div className="flex justify-between items-center  text-[1rem] mx-auto lg:mx-40">
+        <div className="flex justify-between items-center  text-[1rem] mx-auto sm:mx-44 ">
           <h3 className={clsx("font-bold lg:text-[2rem]")}>Where in the world?</h3>
           <button
             className="flex gap-2 items-center lg:text-[1.5rem]"

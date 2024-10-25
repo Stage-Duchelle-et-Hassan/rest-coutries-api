@@ -13,7 +13,7 @@ export default function SearchBar({ onSearch }: { onSearch?: (query: string) => 
   };
 
   return (
-    <section className='py-12'>
+    <section className='py-12' >
       <AppContainer>
         <div className=" flex w-full justify-between">
           <div className="">
