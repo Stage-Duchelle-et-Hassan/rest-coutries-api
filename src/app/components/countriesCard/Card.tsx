@@ -1,4 +1,3 @@
-import Image from "next/image"
 import { AppContainer } from "../container"
 
 interface CountryCardProps {
@@ -15,14 +14,10 @@ export default function CountryCard(props: CountryCardProps) {
     <section>
       <AppContainer>
         <div className="w-80 shadow-lg rounded-xl bg-primary-foreground cursor-pointer">
-          <div className="relative rounded">
-            <Image
-              src={props.flag}
-              alt={props.alt}
-              width={1000}
-              height={1000}
-              className="object-contain rounded-t-xl  w-full"
-            />
+          <div
+            className="relative h-52 w-full shadow-md mt-3 bg-cover bg-center rounded-t-xl"
+            style={{ backgroundImage: `url(${props.flag})` }}
+          >
           </div>
           <div className="px-8 py-4 bg-primary-foreground text-primary">
             <h1 className="my-4">{props.name}</h1>
