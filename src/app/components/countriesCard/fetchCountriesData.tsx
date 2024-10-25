@@ -6,6 +6,7 @@ import { RegionList } from './RegionList';
 import CountryList from './countryList';
 import CountrySearch from '../countrySearch';
 import { AppContainer } from '../container';
+import Loader from '../loader';
 
 export interface Country {
   cca3: string;
@@ -50,41 +51,39 @@ export default function CountriesInfo() {
   };
 
   if (isLoading) {
-    return (
-      <div className="absolute top-0 right-0 bottom-0 left-0 flex flex-row items-center justify-center gap-2">
-        <div className="w-6 h-6 rounded-full bg-blue-500 animate-bounce [animation-delay:.7s]"></div>
-        <div className="w-6 h-6 rounded-full bg-blue-500  animate-bounce [animation-delay:.3s]"></div>
-        <div className="w-6 h-6 rounded-full bg-blue-500  animate-bounce [animation-delay:.7s]"></div>
-      </div>
-    );
+    return(
+      <Loader/>
+    )
   }
 
   return (
     <>
-      <AppContainer>
-        <div className='flex flex-col sm:flex-row items-center justify-between mx-auto md:mx-40 my-10 sm:my-4'>
-          <CountrySearch searchTerm={searchTerm} handleInputChange={handleInputChange} />
-          <div className="pr-4">
-            <button
-              className="flex justify-between items-center bg-primary-foreground shadow-md w-72 mx-auto sm:w-48 px-4 h-9 cursor-pointer rounded-sm"
-              onClick={() => setShowRegionList(!showRegionList)}
-            >
-              <p className="text-primary">{changeFilterButtonName}</p>
-              <ChevronDown className="text-primary" />
-            </button>
-            {showRegionList && 
-              <RegionList 
-                setSelectedRegion={setSelectedRegion} 
-                setShowRegionList={setShowRegionList} 
-                setChangeFilterButtonName={setChangeFilterButtonName}
-              />
-            }
-          </div>
-        </div>
-        <div className="text-black" onClick={() => setShowRegionList(false)}>
-          <CountryList countries={filteredCountries} />
-        </div>
-      </AppContainer>
+      <div className='sm:mt-20 mt-5'>
+        <AppContainer>
+            <div className='flex flex-col sm:flex-row items-center sm:justify-between mx-auto md:mx-44 mb-10 sm:my-4'>
+              <CountrySearch searchTerm={searchTerm} handleInputChange={handleInputChange} />
+              <div>
+                <button
+                  className="flex justify-between items-center bg-primary-foreground shadow-md w-48 px-4 py-3  cursor-pointer rounded-sm"
+                  onClick={() => setShowRegionList(!showRegionList)}
+                >
+                  <p className="text-primary">{changeFilterButtonName}</p>
+                  <ChevronDown className="text-primary" />
+                </button>
+                {showRegionList && 
+                  <RegionList 
+                    setSelectedRegion={setSelectedRegion} 
+                    setShowRegionList={setShowRegionList} 
+                    setChangeFilterButtonName={setChangeFilterButtonName}
+                  />
+                }
+              </div>
+            </div>
+            <div className="text-black" onClick={() => setShowRegionList(false)}>
+              <CountryList countries={filteredCountries} />
+            </div>
+          </AppContainer>
+      </div>
     </>
   );
 }

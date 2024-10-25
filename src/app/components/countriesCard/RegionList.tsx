@@ -15,9 +15,9 @@ export const RegionList  = (props  : RegionListType) =>{
     }
         
     return(
-           <div className=" flex flex-col items-end bg-primary-foreground  shadow-md rounded-sm absolute z-50 w-48 ">
+           <div className=" flex flex-col items-end bg-primary-foreground  shadow-md rounded-sm absolute z-50 w-48 mt-4">
                 {continents.map((continent) => (
-                    <button className="hover:bg-slate-600 hover:text-white w-full text-start pl-4 py-2 text-primary"
+                    <button className="hover:bg-slate-600 hover:text-white w-full text-start pl-4 py-2 text-primary "
                         key={continent}
                         onClick={()=> removeRegionList(continent)}
                     >
